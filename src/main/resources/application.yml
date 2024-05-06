@@ -1,6 +1,32 @@
-spring:
+server:
+  port: 8000
+  servlet:
+    context-path: /blog
+
+    
+spring: 
+  mvc:
+    view:
+      prefix: /WEB-INF/views/
+      suffix: .jsp
+      
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/blog?serverTimezone=Asia/Seoul
     username: cos
-    password: cos1234
+    password: 0912
+    
+  jpa:
+    open-in-view: true
+    hibernate:
+      ddl-auto: update  #프로젝트를 실행할때마다 테이블을 만들겠다는 뜻이다 처음에만 create로하고 나중에 update로 바꿔야한다 바꾸지않으면 초기화된다
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl #데이터베이스를만들때 변수이름그대로 피드를 만든다는 뜻이다
+
+    show-sql: true #콘솔창에 데이터베이스가 어떻게 수정되는지 보여준다
+    properties:
+      hibernate.format_sql: true #콘솔창에 데이터베이스를 보여줄때 보기좋게 정렬해서 보여준다
+
+  jackson:
+    serialization:
+      fail-on-empty-beans: false
