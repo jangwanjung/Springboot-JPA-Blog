@@ -32,7 +32,7 @@ public class User {
 	@GeneratedValue(strategy=GenerationType.IDENTITY) //autoinrement를 사용하겠다는 어노테이션이다
 	private int id; // 프리이머리키
 	
-	@Column(nullable = false,length = 30) //컬럼이 null이될수없고 길이가 30자가 넘을수 없다는 뜻이다
+	@Column(nullable = false,length = 30, unique=true) //컬럼이 null이될수없고 길이가 30자가 넘을수 없다는 뜻이다 + 중복값은 못들어가게설정
 	private String username; //유저이름
 	
 	@Column(nullable = false,length = 100) //비밀번호의 길이를 많이주는이유는 암호화할거이기때문이다
