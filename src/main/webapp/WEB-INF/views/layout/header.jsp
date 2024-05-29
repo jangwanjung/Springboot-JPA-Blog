@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
 <%-- <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> --%>
 <!DOCTYPE html>
-<%--실험12 --%>
+<%--실험123 --%>
 <html lang="en">
 <head>
 <title>Bootstrap Example</title>
