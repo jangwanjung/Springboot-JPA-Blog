@@ -20,24 +20,21 @@
 			<span class="navbar-toggler-icon"></span>
 		</button>
 		<div class="collapse navbar-collapse" id="collapsibleNavbar">
-			<%-- <c:choose>
-				<!-- if문법이다 -->
+			<c:choose>
 				<c:when test="${empty sessionScope.principal}">
-					<!-- 만약에 principa(세션)이 비어있으면일때실행 -->
 					<ul class="navbar-nav">
 						<li class="nav-item"><a class="nav-link" href="/blog/user/loginForm">로그인</a></li>
 						<li class="nav-item"><a class="nav-link" href="/blog/user/joinForm">회원가입</a></li>
 					</ul>
 				</c:when>
 				<c:otherwise>
-					<!-- 만약에 principa(세션)이비어있으면 실행 -->
 					<ul class="navbar-nav">
 						<li class="nav-item"><a class="nav-link" href="/blog/board/writeForm">글쓰기</a></li>
 						<li class="nav-item"><a class="nav-link" href="/blog/user/userForm">회원정보</a></li>
 						<li class="nav-item"><a class="nav-link" href="/blog/user/logout">로그아웃</a></li>
 					</ul>
 				</c:otherwise>
-			</c:choose> --%>
+			</c:choose>
 		</div>
 	</nav>
 	<br />

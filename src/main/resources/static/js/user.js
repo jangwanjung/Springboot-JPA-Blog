@@ -3,6 +3,9 @@ let index = {
 		$("#btn-save").on("click",()=>{  //id가 btn-save인것이 click이 되면 save함수를 호출하자
 			this.save();
 		});
+		$("#btn-login").on("click",()=>{  
+			this.login();
+		});
 	},
 	
 	save: function(){
