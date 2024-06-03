@@ -7,13 +7,13 @@ import lombok.Getter;
 
 @Controller
 public class UserController {
-	
-	@GetMapping("user/joinForm")
+	//auth는 인증이 안된사용자들이 출입할수있는 경로를 말하는것이다
+	@GetMapping("/auth/joinForm")
 	public String joinForm(){
 		return "user/joinForm"; 
 	}
 	
-	@GetMapping("user/loginForm")
+	@GetMapping("/auth/loginForm")
 	public String loginForm(){
 		return "user/loginForm"; 
 	}
