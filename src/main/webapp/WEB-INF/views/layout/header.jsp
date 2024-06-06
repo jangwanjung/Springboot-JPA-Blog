@@ -3,7 +3,7 @@
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
 <!-- 아래는 세션이있으면 실행되는 코드이다 -->
 <sec:authorize access="isAuthenticated()"> 
-<!-- 아래코드에서 value는 principal을 principal이라는 변수에 저장한다는뜻이고 principal은 주요한객체의접근을 항상허용한다는뜻이다 -->
+<!-- 아래코드에서 var는 principal을 principal이라는 변수에 저장한다는뜻이고 principal은 주요한객체의접근을 항상허용한다는뜻이다 -->
 	<sec:authentication property="principal" var="principal"/>
 </sec:authorize>
 
