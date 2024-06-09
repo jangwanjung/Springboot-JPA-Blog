@@ -13,6 +13,9 @@ import com.cos.blog.model.User;
 import com.cos.blog.service.UserService;
 
 import javax.servlet.http.HttpSession;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+
 
 @RestController
 public class UserApiController {
@@ -27,6 +30,14 @@ public class UserApiController {
 		
 		return new ResponseDto<Integer>(HttpStatus.OK.value(), 1);
 	}
+	
+	@PutMapping("/user")
+	public ResponseDto<Integer> update(@RequestBody User user){ //json데이터로 받을거면 @RequestBody어노테이션을 사용하여야 한다
+		userService.회원수정(user);
+		return new ResponseDto<Integer>(HttpStatus.OK.value(), 1);
+	}
+
+	
 	//시큐리티 라이브러리를 사용하면 아래에있는 로직을 사용하지않아된다
 	
 	/*
