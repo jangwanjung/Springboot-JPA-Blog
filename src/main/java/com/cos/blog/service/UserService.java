@@ -1,6 +1,10 @@
 package com.cos.blog.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.neo4j.Neo4jProperties.Authentication;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -17,6 +21,9 @@ public class UserService {
 	
 	@Autowired
 	private BCryptPasswordEncoder encoder;
+	
+	@Autowired
+	private AuthenticationManager authenticationManager;
 	
 	@Transactional
 	public void 회원가입(User user) {
@@ -42,8 +49,9 @@ public class UserService {
 		persistance.setEmail(user.getEmail());
 		//회원수정 함수종료=서비스종료=트랜잭션종료=commit이 자동으로 된다
 		//springboot가 영속화된 persistance 객체의 변화가 감지되면 더티체킹이 되어 update문을 날려줌
+		//세션등록
+
 	}
-	
 	
 	//아래코드는 스프링시큐리티를 사용하지않았을때 사용하는 코드이다 전통적인 로그인방식의 코드이다
 	/*

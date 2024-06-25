@@ -56,6 +56,10 @@ public class PrincipalDetail implements UserDetails {
 		
 		return true;
 	}
+	
+	public void setUser(User user) {
+		this.user = user;
+	}
 	//계정이 갖고있는 권한 목록을 리턴한다.(원래는 권한이여러개있을수있으므로 for문을돌리지만 우리는하나만하겠다)
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
