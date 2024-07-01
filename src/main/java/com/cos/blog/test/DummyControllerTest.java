@@ -3,6 +3,8 @@ package com.cos.blog.test;
 import java.util.List;
 import java.util.function.Supplier;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.data.domain.Page;
@@ -20,8 +22,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.cos.blog.model.RoleType;
 import com.cos.blog.model.User;
 import com.cos.blog.repository.UserRepository;
-
-import javax.transaction.Transactional;
 
 
 @RestController

@@ -32,4 +32,8 @@ spring:
   jackson:
     serialization:
       fail-on-empty-beans: false
+
+#아래의 코드는 카카오로 회원가입할때 비밀번호를 전부 하나로 통일할때 사용하는 코드이다    
+cos:  
+  key: oauthpassword
       

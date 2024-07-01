@@ -13,6 +13,7 @@
 		</div>
 		
 		<button id="btn-login" class="btn btn-primary">·Î±×ÀÎ</button>
+		<a href="https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=d27d743084ed545af0a2180cdb8c3af7&redirect_uri=http://localhost:8000/auth/kakao/callback"><img height=41px src=/image/kakao_login_button.png></a>
 	</form>
 </div>
 <%@ include file="../layout/footer.jsp"%>
