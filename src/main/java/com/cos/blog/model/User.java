@@ -38,6 +38,8 @@ public class User {
 	@Column(nullable = false, length = 50)
 	private String email;
 	
+	private String oauth;
+	
 	// @ColumnDefault("user")
 	// DB는 RoleType이라는 것이 없음. 아래의 어노테이션을 추가해야 함.
 	@Enumerated(EnumType.STRING)

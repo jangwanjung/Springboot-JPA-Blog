@@ -21,7 +21,7 @@ spring:
   jpa:
     open-in-view: true #true로 설정하면 영속성컨텍스트는 세션부터시작하고 트랜젝션과 jdbc는 서비스부터시작한다 False로 설정하면 전부다 서비스부터시작한다 그러면 lazy로딩이 불가능해진다
     hibernate:
-      ddl-auto: update  #프로젝트를 실행할때마다 테이블을 만들겠다는 뜻이다 처음에만 create로하고 나중에 update로 바꿔야한다 바꾸지않으면 초기화된다
+      ddl-auto: update #프로젝트를 실행할때마다 테이블을 만들겠다는 뜻이다 처음에만 create로하고 나중에 update로 바꿔야한다 바꾸지않으면 초기화된다
       naming:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl #데이터베이스를만들때 변수이름그대로 피드를 만든다는 뜻이다
 
