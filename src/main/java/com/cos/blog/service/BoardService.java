@@ -7,8 +7,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.cos.blog.model.Board;
+import com.cos.blog.model.Reply;
 import com.cos.blog.model.User;
 import com.cos.blog.repository.BoardRepository;
+import com.cos.blog.repository.ReplyRepository;
 
 
 @Service
@@ -16,6 +18,9 @@ public class BoardService {
 
 	@Autowired
 	private BoardRepository boardRepository;
+	
+	@Autowired
+	private ReplyRepository replyRepository;
 	
 	@Transactional
 	public void 글쓰기(Board board,User user) {  //board는 title이랑 content 두개를 받는다 그러니 count와 user정보를 추가해줘야한다
@@ -51,6 +56,14 @@ public class BoardService {
 		board.setTitle(requestBoard.getTitle());
 		board.setContent(requestBoard.getContent());
 		//해당 함수로 종료시(즉 서비스가 종료될때) 트랜잭션이 종료됩니다. 이때 더티체킹이 일어나면서 자동 업데이트가 됨. db flush
+	}
+	public void 댓글쓰기(User user, int id , Reply requestReply) {
+		Board board = boardRepository.findById(id).orElseThrow(()->{
+			return new IllegalArgumentException("댓글쓰기 실패 : 게시물을 찾을 수 없습니다");
+		}); 
+		requestReply.setBoard(board);
+		requestReply.setUser(user);	
+		replyRepository.save(requestReply);
 	}
 	
 }

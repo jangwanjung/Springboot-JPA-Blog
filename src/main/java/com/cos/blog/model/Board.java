@@ -13,8 +13,11 @@ import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OrderBy;
 
 import org.hibernate.annotations.CreationTimestamp;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -45,7 +48,9 @@ public class Board {
 	private User user; // DB는 오브젝트 저장 불가. fk(포린키), java는 오브젝트 저장 가능
 	
 	@OneToMany(mappedBy = "board", fetch = FetchType.EAGER) // mappedBy : 연관관계의 주인이 아님(FK가 아님) -> db에 컬럼 만들지 않음
-	private List<Reply> reply;
+	@JsonIgnoreProperties({"board"}) //reply에서도 board를 참조하기때문에 무한참조가 발생한다 그것을 방지해주는 어노테이션을 사용하자
+	@OrderBy("id desc")  //id를 내림차순으로 정렬해주는 어노테이션이다
+	private List<Reply> replys;
 	
 	@CreationTimestamp
 	private Timestamp createDate;
