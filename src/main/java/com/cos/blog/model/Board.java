@@ -3,6 +3,7 @@ package com.cos.blog.model;
 import java.sql.Timestamp;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -47,7 +48,8 @@ public class Board {
 	@JoinColumn(name = "userId")
 	private User user; // DB는 오브젝트 저장 불가. fk(포린키), java는 오브젝트 저장 가능
 	
-	@OneToMany(mappedBy = "board", fetch = FetchType.EAGER) // mappedBy : 연관관계의 주인이 아님(FK가 아님) -> db에 컬럼 만들지 않음
+	//cascade타입을 remove로 해주면 board을 삭제하면 그와 연관된 reply도 삭제시켜준다
+	@OneToMany(mappedBy = "board", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE) // mappedBy : 연관관계의 주인이 아님(FK가 아님) -> db에 컬럼 만들지 않음
 	@JsonIgnoreProperties({"board"}) //reply에서도 board를 참조하기때문에 무한참조가 발생한다 그것을 방지해주는 어노테이션을 사용하자
 	@OrderBy("id desc")  //id를 내림차순으로 정렬해주는 어노테이션이다
 	private List<Reply> replys;
