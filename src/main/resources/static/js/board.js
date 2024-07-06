@@ -21,8 +21,6 @@ let index = {
 			content:$("#content").val(),
 		};
 		
-		
-		
 		$.ajax({
 			type:"POST",
 			url:"/api/board",
@@ -97,6 +95,18 @@ let index = {
 			alert(JSON.stringify(error));
 		}); 
 	},
+	replyDelete : function(boardId,replyId){
+		$.ajax({
+			type:"DELETE",
+			url:`/api/board/${boardId}/reply/${replyId}`,
+			dataType:"json"
+		}).done(function(resp){  
+			alert("댓글삭제 성공");
+			location.href = `/board/${boardId}`;
+		}).fail(function(error){  
+			alert(JSON.stringify(error));
+		});  
+	}
 };
 
 index.init(); //index의 init함수를 호출하겠다는 뜻이다
