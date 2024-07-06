@@ -16,7 +16,7 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/blog?serverTimezone=Asia/Seoul
     username: cos
-    password: 0912
+    password: 8941
     
   jpa:
     open-in-view: true #true로 설정하면 영속성컨텍스트는 세션부터시작하고 트랜젝션과 jdbc는 서비스부터시작한다 False로 설정하면 전부다 서비스부터시작한다 그러면 lazy로딩이 불가능해진다
